@@ -1,3 +1,6 @@
+-- Exit insert mode using "jk"
+vim.keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
+
 -- better up/down
 -- Move to window using the <ctrl> hjkl keys
 vim.keymap.set({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
