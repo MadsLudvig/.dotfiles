@@ -1,7 +1,6 @@
 return {
-  { -- Fuzzy Finder (files, lsp, etc)
+  {
     "nvim-telescope/telescope.nvim",
-    branch = "0.1.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
       {
@@ -65,7 +64,7 @@ return {
             require("telescope.themes").get_dropdown(),
           },
           ["stregsystem"] = {
-            username = "foo",
+            username = "test",
           },
         },
       })

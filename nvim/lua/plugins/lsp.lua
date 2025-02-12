@@ -4,12 +4,7 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
       "nvim-tree/nvim-web-devicons",
-      {
-        "simrat39/rust-tools.nvim",
-        config = function()
-          require("rust-tools").setup()
-        end,
-      },
+      "mrcjkb/rustaceanvim",
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
       "WhoIsSethDaniel/mason-tool-installer.nvim",
@@ -94,7 +89,7 @@ return {
       require("mason").setup()
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
-        "stylua", -- Used to format lua code
+        "stylua",
       })
       require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
       require("mason-lspconfig").setup({
@@ -106,6 +101,14 @@ return {
             -- certain features of an LSP (for example, turning off formatting for tsserver)
             server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
             require("lspconfig")[server_name].setup(server)
+          end,
+          jdtls = function()
+            require("java").setup({
+              -- Your custom jdtls settings goes here
+            })
+            require("lspconfig").jdtls.setup({
+              -- Your custom nvim-java configuration goes here
+            })
           end,
         },
       })

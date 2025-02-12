@@ -60,8 +60,53 @@ return {
         [[]],
       }
 
+      local dpck = {
+        [[]],
+        [[]],
+        [[]],
+        [[]],
+        [[]],
+        [[]],
+        [[       /$$                     /$$      ]],
+        [[      | $$                    | $$      ]],
+        [[  /$$$$$$$  /$$$$$$   /$$$$$$$| $$   /$$]],
+        [[ /$$__  $$ /$$__  $$ /$$_____/| $$  /$$/]],
+        [[| $$  | $$| $$  \ $$| $$      | $$$$$$/ ]],
+        [[| $$  | $$| $$  | $$| $$      | $$_  $$ ]],
+        [[|  $$$$$$$| $$$$$$$/|  $$$$$$$| $$ \  $$]],
+        [[ \_______/| $$____/  \_______/|__/  \__/]],
+        [[          | $$                          ]],
+        [[          | $$                          ]],
+        [[          |__/                          ]],
+      }
+
+      local dpck_big = {
+        [[            dddddddd                                                          ]],
+        [[            d::::::d                                       kkkkkkkk           ]],
+        [[            d::::::d                                       k::::::k           ]],
+        [[            d::::::d                                       k::::::k           ]],
+        [[            d:::::d                                        k::::::k           ]],
+        [[    ddddddddd:::::dppppp   ppppppppp       cccccccccccccccc k:::::k    kkkkkkk]],
+        [[  dd::::::::::::::dp::::ppp:::::::::p    cc:::::::::::::::c k:::::k   k:::::k ]],
+        [[ d::::::::::::::::dp:::::::::::::::::p  c:::::::::::::::::c k:::::k  k:::::k  ]],
+        [[d:::::::ddddd:::::dpp::::::ppppp::::::pc:::::::cccccc:::::c k:::::k k:::::k   ]],
+        [[d::::::d    d:::::d p:::::p     p:::::pc::::::c     ccccccc k::::::k:::::k    ]],
+        [[d:::::d     d:::::d p:::::p     p:::::pc:::::c              k:::::::::::k     ]],
+        [[d:::::d     d:::::d p:::::p     p:::::pc:::::c              k:::::::::::k     ]],
+        [[d:::::d     d:::::d p:::::p    p::::::pc::::::c     ccccccc k::::::k:::::k    ]],
+        [[d::::::ddddd::::::ddp:::::ppppp:::::::pc:::::::cccccc:::::ck::::::k k:::::k   ]],
+        [[ d:::::::::::::::::dp::::::::::::::::p  c:::::::::::::::::ck::::::k  k:::::k  ]],
+        [[  d:::::::::ddd::::dp::::::::::::::pp    cc:::::::::::::::ck::::::k   k:::::k ]],
+        [[   ddddddddd   dddddp::::::pppppppp        cccccccccccccccckkkkkkkk    kkkkkkk]],
+        [[                    p:::::p                                                   ]],
+        [[                    p:::::p                                                   ]],
+        [[                   p:::::::p                                                  ]],
+        [[                   p:::::::p                                                  ]],
+        [[                   p:::::::p                                                  ]],
+        [[                   ppppppppp                                                  ]],
+      }
       -- Set header
-      dashboard.section.header.val = header_colossal
+      dashboard.section.header.val = dpck_big
       dashboard.section.header.opts.hl = "PreProc"
 
       -- Set menu

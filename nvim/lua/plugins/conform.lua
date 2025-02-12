@@ -17,6 +17,7 @@ return {
         typescript = { { "prettier" } },
         typescriptreact = { { "prettier" } },
         svelte = { { "prettier" } },
+        xml = { { "xmlformat" } },
       },
     },
   },

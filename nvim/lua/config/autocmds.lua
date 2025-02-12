@@ -2,7 +2,6 @@ local function augroup(name)
   return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
 end
 
-
 -- Check if we need to reload the file when it changed
 vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
   group = augroup("checktime"),
@@ -111,4 +110,10 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     local file = vim.loop.fs_realpath(event.match) or event.match
     vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
   end,
+})
+
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = { "*.typ" },
+  group = vim.api.nvim_create_augroup("Markdown Wrap Settings", { clear = true }),
+  command = "setlocal wrap",
 })
