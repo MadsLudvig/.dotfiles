@@ -1,2 +1,1 @@
 # My Custom Neovim Config
-
