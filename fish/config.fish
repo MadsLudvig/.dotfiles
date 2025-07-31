@@ -16,7 +16,6 @@ set -gx LDFLAGS "-L/opt/homebrew/lib"
 set -gx PATH $HOME/.cargo/bin $PATH
 set -gx PATH $HOME/.local/share/bob/nvim-bin $PATH
 set -gx XDG_CONFIG_HOME "$HOME/.config"
-set -gx export GEMINI_API_KEY AIzaSyCTJl_TWdeGIXKHR1RdlG0W7qGdfPDGw58
 
 
 # BUN
