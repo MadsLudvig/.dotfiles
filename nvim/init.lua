@@ -80,6 +80,12 @@ require("oil").setup({
     use_default_keymaps = false,
 })
 
+require("snacks").setup({
+    picker = {
+        ui_select = true
+    }
+})
+
 -- Set colorscheme
 vim.cmd("colorscheme cyberdream")
 -- Highlight on yank
@@ -101,8 +107,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.keymap.set('n', 'gt', Snacks.picker.lsp_type_definitions)
         vim.keymap.set('n', '<leader>ss', Snacks.picker.lsp_symbols)
         vim.keymap.set('n', '<leader>sS', Snacks.picker.lsp_workspace_symbols)
-        vim.keymap.set('n', '<leader>cr', vim.lsp.buf.rename)
         vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action)
+        vim.keymap.set('n', '<leader>cr', vim.lsp.buf.rename)
     end
 })
 
@@ -116,16 +122,11 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 vim.api.nvim_create_autocmd("User", {
-    pattern = "BlinkCmpMenuOpen",
-    callback = function()
-        vim.b.copilot_suggestion_hidden = true
-    end,
-})
-
-vim.api.nvim_create_autocmd("User", {
-    pattern = "BlinkCmpMenuClose",
-    callback = function()
-        vim.b.copilot_suggestion_hidden = false
+    pattern = "OilActionsPost",
+    callback = function(event)
+        if event.data.actions.type == "move" then
+            Snacks.rename.on_rename_file(event.data.actions.src_url, event.data.actions.dest_url)
+        end
     end,
 })
 
@@ -134,6 +135,7 @@ vim.keymap.set('n', '<leader>w', ':write<CR>')
 vim.keymap.set('n', '<leader>q', ':quit<CR>')
 vim.keymap.set('n', '<leader>f', function() Snacks.picker.files() end)
 vim.keymap.set('n', '<leader>h', function() Snacks.picker.help() end)
+vim.keymap.set('n', '<leader>s', function() Snacks.picker.grep() end)
 vim.keymap.set('n', '<leader>e', ':Oil<CR>')
 vim.keymap.set({ 'n', 't' }, '<C-h>', ':NavigatorLeft<CR>')
 vim.keymap.set({ 'n', 't' }, '<C-l>', ':NavigatorRight<CR>')
