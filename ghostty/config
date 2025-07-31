@@ -1,0 +1,12 @@
+
+shell-integration = fish
+theme = dark:cyberdream,light:cyberdream-light
+font-style-bold = true
+font-family = JetBrainsMono NFM
+font-style = DemiBold
+window-padding-color = extend
+window-colorspace =display-p3
+font-size = 14.8
+working-directory = /Users/madsfagerlund/github/
+macos-titlebar-style = hidden
+fullscreen = false
