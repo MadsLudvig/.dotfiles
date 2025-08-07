@@ -130,6 +130,7 @@ keybinds clear-defaults=true {
     scroll { 
         bind "Ctrl d" { HalfPageScrollDown; }
         bind "Ctrl u" { HalfPageScrollUp; }
+        bind "Esc" { SwitchToMode "normal"; }
     }
 
 
