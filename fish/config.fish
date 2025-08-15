@@ -17,7 +17,6 @@ set -gx PATH $HOME/.cargo/bin $PATH
 set -gx PATH $HOME/.local/share/bob/nvim-bin $PATH
 set -gx XDG_CONFIG_HOME "$HOME/.config"
 
-
 # BUN
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
