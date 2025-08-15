@@ -19,7 +19,7 @@ vim.opt.expandtab = true
 vim.laststatus = 0
 
 vim.pack.add({
-  { src = "https://github.com/scottmckendry/cyberdream.nvim" },
+ { src = "https://github.com/scottmckendry/cyberdream.nvim" },
   { src = "https://github.com/stevearc/oil.nvim" },
   { src = "https://github.com/neovim/nvim-lspconfig" },
   { src = "https://github.com/chomosuke/typst-preview.nvim" },
@@ -38,6 +38,7 @@ vim.pack.add({
 require('nvim-treesitter.configs').setup {
   sync_install = false,
   auto_install = true,
+  ensure_installed = { "lua", "svelte", "typescript", "rust", "html", "css", "javascript", "json", "markdown", "yaml" },
   highlight = {
     enable = true,
   },
@@ -108,7 +109,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- Enable language servers
-vim.lsp.enable({ "lua_ls", "svelte", "tinymist", "typescript-language-server", "rust_analyzer" })
+vim.lsp.enable({ "lua_ls", "svelte", "tinymist", "typescript-language-server", "rust_analyzer", "yaml-language-server", "html", "css-lsp", "json-lsp", "nixd"})
 
 -- Bind keybinds on LspAttach
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -122,23 +123,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action)
     vim.keymap.set('n', '<leader>cr', vim.lsp.buf.rename)
   end
-})
-
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*",
-  callback = function()
-    vim.lsp.buf.format({ async = true })
-  end,
-  desc = "Format buffer on save",
-})
-
-vim.api.nvim_create_autocmd("User", {
-  pattern = "OilActionsPost",
-  callback = function(event)
-    if event.data.actions.type == "move" then
-      Snacks.rename.on_rename_file(event.data.actions.src_url, event.data.actions.dest_url)
-    end
-  end,
 })
 
 vim.g.mapleader = " "
