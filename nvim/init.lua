@@ -19,7 +19,7 @@ vim.opt.expandtab = true
 vim.laststatus = 0
 
 vim.pack.add({
- { src = "https://github.com/scottmckendry/cyberdream.nvim" },
+  { src = "https://github.com/scottmckendry/cyberdream.nvim" },
   { src = "https://github.com/stevearc/oil.nvim" },
   { src = "https://github.com/neovim/nvim-lspconfig" },
   { src = "https://github.com/chomosuke/typst-preview.nvim" },
