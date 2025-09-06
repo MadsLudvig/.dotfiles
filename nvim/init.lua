@@ -103,7 +103,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 vim.lsp.enable({ "lua_ls", "svelte", "tinymist", "typescript-language-server", "rust_analyzer", "yaml-language-server", "html", "css-lsp", "json-lsp", "nixd"})
 
 -- Bind keybinds on LspAttach
-vim.apI.nvim_create_autocmd("LspAttach", {
+vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(ev)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration)
