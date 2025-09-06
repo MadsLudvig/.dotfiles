@@ -25,7 +25,6 @@ vim.pack.add({
   { src = "https://github.com/chomosuke/typst-preview.nvim" },
   { src = "https://github.com/giuxtaposition/blink-cmp-copilot" },
   { src = "https://github.com/zbirenbaum/copilot.lua" },
-  { src = "https://github.com/saghen/blink.cmp" },
   { src = "https://github.com/dynamotn/Navigator.nvim" },
   { src = "https://github.com/folke/snacks.nvim" },
   { src = "https://github.com/folke/todo-comments.nvim" },
@@ -58,17 +57,6 @@ require("lualine").setup({
     section_separators = { left = "|", right = "|" },
   },
 })
-require('copilot').setup({
-  suggestion = {
-    enabled = true,
-    auto_trigger = true,
-    keymap = {
-      accept = "<C-j>"
-    }
-  },
-})
-
-require("blink.cmp").setup()
 
 require("oil").setup({
   default_file_explorer = true,
@@ -112,7 +100,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 vim.lsp.enable({ "lua_ls", "svelte", "tinymist", "typescript-language-server", "rust_analyzer", "yaml-language-server", "html", "css-lsp", "json-lsp", "nixd"})
 
 -- Bind keybinds on LspAttach
-vim.api.nvim_create_autocmd("LspAttach", {
+vim.apI.nvim_create_autocmd("LspAttach", {
   callback = function(ev)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration)
@@ -124,6 +112,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set('n', '<leader>cr', vim.lsp.buf.rename)
   end
 })
+
+-- Autocomplete
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(ev)
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    if client:supports_method('textDocument/completion') then
+      vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = false })
+    end
+  end,
+})
+vim.cmd("set completeopt+=noselect")
 
 vim.g.mapleader = " "
 vim.keymap.set('n', '<leader>o', ':update<CR> :source<CR>')
