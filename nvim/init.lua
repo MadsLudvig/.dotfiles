@@ -32,6 +32,7 @@ vim.pack.add({
   { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
   { src = "https://github.com/j-hui/fidget.nvim" },
   { src = "https://github.com/nvim-lualine/lualine.nvim" },
+  { src = "https://github.com/dariuscorvus/tree-sitter-surrealdb.nvim" },
 })
 
 require('nvim-treesitter.configs').setup {
@@ -45,6 +46,8 @@ require('nvim-treesitter.configs').setup {
     enable = true,
   },
 }
+
+require('tree-sitter-surrealdb').setup()
 
 -- Setup plugins
 require("zellij-nav").setup()
