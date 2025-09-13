@@ -99,6 +99,18 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
+local lspconfig = require('lspconfig')
+lspconfig.rust_analyzer.setup({
+  settings = {
+    ["rust-analyzer"] = {
+      checkOnSave = {
+        command = "clippy",
+        extraArgs = { "--no-deps" },
+      },
+    },
+  },
+})
+
 -- Enable language servers
 vim.lsp.enable({ "lua_ls", "svelte", "tinymist", "typescript-language-server", "rust_analyzer", "yaml-language-server", "html", "css-lsp", "json-lsp", "nixd"})
 
