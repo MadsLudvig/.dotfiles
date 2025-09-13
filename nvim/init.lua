@@ -25,7 +25,7 @@ vim.pack.add({
   { src = "https://github.com/chomosuke/typst-preview.nvim" },
   { src = "https://github.com/giuxtaposition/blink-cmp-copilot" },
   { src = "https://github.com/zbirenbaum/copilot.lua" },
-  { src = "https://github.com/swaits/zellij-nav.nvim" },
+  { src = "https://github.com/dynamotn/Navigator.nvim" },
   { src = "https://github.com/folke/snacks.nvim" },
   { src = "https://github.com/folke/todo-comments.nvim" },
   { src = "https://github.com/folke/trouble.nvim" },
@@ -50,7 +50,7 @@ require('nvim-treesitter.configs').setup {
 require('tree-sitter-surrealdb').setup()
 
 -- Setup plugins
-require("zellij-nav").setup()
+require("Navigator").setup()
 require("todo-comments").setup()
 require("trouble").setup()
 require("fidget").setup()
