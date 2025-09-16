@@ -101,7 +101,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- Enable language servers
-vim.lsp.enable({ "lua_ls", "svelte", "tinymist", "typescript-language-server", "rust_analyzer", "yaml-language-server", "html", "css-lsp", "json-lsp", "nixd"})
+vim.lsp.enable({ "lua_ls", "svelte", "tinymist", "typescript-language-server", "rust_analyzer", "yaml-language-server", "html", "css-lsp", "json-lsp", "nixd", "zls" })
 
 -- Bind keybinds on LspAttach
 vim.api.nvim_create_autocmd("LspAttach", {
