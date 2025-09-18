@@ -2,7 +2,6 @@ local vim = vim
 vim.g.ai_cmp = false
 vim.o.winborder = "rounded"
 vim.o.tabstop = 2
-vim.o.cursorcolumn = false
 vim.o.ignorecase = true
 vim.o.shiftwidth = 2
 vim.o.smartindent = true
@@ -13,7 +12,6 @@ vim.o.termguicolors = true
 vim.o.undofile = true
 vim.o.incsearch = true
 vim.o.signcolumn = "yes"
-
 vim.opt.clipboard = "unnamedplus"
 vim.opt.expandtab = true
 vim.laststatus = 0
@@ -35,21 +33,8 @@ vim.pack.add({
   { src = "https://github.com/dariuscorvus/tree-sitter-surrealdb.nvim" },
 })
 
-require('nvim-treesitter.configs').setup {
-  sync_install = false,
-  auto_install = true,
-  ensure_installed = { "lua", "svelte", "typescript", "rust", "html", "css", "javascript", "json", "markdown", "yaml" },
-  highlight = {
-    enable = true,
-  },
-  indent = {
-    enable = true,
-  },
-}
-
+require('nvim-treesitter.configs').setup {}
 require('tree-sitter-surrealdb').setup()
-
--- Setup plugins
 require("blink.cmp").setup()
 require("Navigator").setup()
 require("todo-comments").setup()
@@ -61,49 +46,30 @@ require("lualine").setup({
     section_separators = { left = "|", right = "|" },
   },
 })
-
 require("oil").setup({
   default_file_explorer = true,
   delete_to_trash = true,
   skip_confirm_for_simple_edits = true,
-  view_options = {
-    show_hidden = true,
-    natural_order = true,
-  },
+  view_options = { show_hidden = true },
   keymaps = {
     ["g?"] = { "actions.show_help", mode = "n" },
     ["<CR>"] = "actions.select",
     ["-"] = { "actions.parent", mode = "n" },
     ["_"] = { "actions.open_cwd", mode = "n" },
     ["`"] = { "actions.cd", mode = "n" },
-    ["~"] = { "actions.cd", opts = { scope = "tab" }, mode = "n" },
-    ["gs"] = { "actions.change_sort", mode = "n" },
-    ["gx"] = "actions.open_external",
-    ["g."] = { "actions.toggle_hidden", mode = "n" },
-    ["g\\"] = { "actions.toggle_trash", mode = "n" },
   },
   use_default_keymaps = false,
 })
+require("snacks").setup({ picker = { ui_select = true } })
 
-require("snacks").setup({
-  picker = {
-    ui_select = true
-  }
-})
-
--- Set colorscheme
 vim.cmd("colorscheme cyberdream")
--- Highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function()
     vim.highlight.on_yank()
   end,
 })
 
--- Enable language servers
 vim.lsp.enable({ "lua_ls", "svelte", "tinymist", "typescript-language-server", "rust_analyzer", "yaml-language-server", "html", "css-lsp", "json-lsp", "nixd", "zls" })
-
--- Bind keybinds on LspAttach
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(ev)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
@@ -122,7 +88,6 @@ vim.keymap.set('n', '<leader>o', ':update<CR> :source<CR>')
 vim.keymap.set('n', '<leader>w', ':write<CR>')
 vim.keymap.set('n', '<leader>q', ':quit<CR>')
 vim.keymap.set('n', '<leader>sf', function() Snacks.picker.files() end)
-
 vim.keymap.set('n', '<leader>sg', function() Snacks.picker.grep() end)
 vim.keymap.set('n', '<leader>e', ':Oil<CR>')
 vim.keymap.set({ 'n', 't' }, '<C-h>', ':NavigatorLeft<CR>')
