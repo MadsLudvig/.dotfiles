@@ -17,6 +17,7 @@ vim.opt.expandtab = true
 vim.laststatus = 0
 
 vim.pack.add({
+  { src = "https://github.com/nvim-tree/nvim-web-devicons" },
   { src = "https://github.com/scottmckendry/cyberdream.nvim" },
   { src = "https://github.com/stevearc/oil.nvim" },
   { src = "https://github.com/neovim/nvim-lspconfig" },
