@@ -121,9 +121,9 @@ vim.g.mapleader = " "
 vim.keymap.set('n', '<leader>o', ':update<CR> :source<CR>')
 vim.keymap.set('n', '<leader>w', ':write<CR>')
 vim.keymap.set('n', '<leader>q', ':quit<CR>')
-vim.keymap.set('n', '<leader>f', function() Snacks.picker.files() end)
-vim.keymap.set('n', '<leader>h', function() Snacks.picker.help() end)
-vim.keymap.set('n', '<leader>s', function() Snacks.picker.grep() end)
+vim.keymap.set('n', '<leader>sf', function() Snacks.picker.files() end)
+
+vim.keymap.set('n', '<leader>sg', function() Snacks.picker.grep() end)
 vim.keymap.set('n', '<leader>e', ':Oil<CR>')
 vim.keymap.set({ 'n', 't' }, '<C-h>', ':NavigatorLeft<CR>')
 vim.keymap.set({ 'n', 't' }, '<C-l>', ':NavigatorRight<CR>')
