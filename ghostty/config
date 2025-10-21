@@ -1,10 +1,23 @@
-shell-integration = fish
+shell-integration = zsh
 theme = dark:cyberdream,light:cyberdream-light
 font-family = JetBrainsMono Nerd Font Mono
-font-style = SemiBold
+font-style = Bold
 window-padding-color = extend
 window-colorspace =display-p3
 font-size = 15.5
-working-directory = /Users/madsfagerlund/github/
+working-directory = /Users/mf/github/
 macos-titlebar-style = hidden
 fullscreen = false
+command = /bin/zsh
+keybind = shift+enter=text:\n
+keybind = ctrl+s=new_split:auto
+keybind = ctrl+l=goto_split:right
+keybind = ctrl+h=goto_split:left
+keybind = ctrl+j=goto_split:down
+keybind = ctrl+k=goto_split:up
+keybind = alt+right=resize_split:right,20
+keybind = alt+left=resize_split:left,20
+keybind = alt+down=resize_split:down,20
+keybind = alt+up=resize_split:up,20
+keybind = alt+up=resize_split:up,20
+keybind = ctrl+q=close_surface
