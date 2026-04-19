@@ -12,7 +12,7 @@ sudo pacman -Syu --needed --noconfirm git stow base-devel
 
 # 1. MacBook: make top row send F1-F12 by default; Fn for brightness/media
 if [[ $IS_ASAHI -eq 1 ]]; then
-  echo "options hid_apple fnmode=2" | sudo tee /etc/modprobe.d/hid_apple.conf >/dev/null
+  echo "options hid_apple fnmode=1" | sudo tee /etc/modprobe.d/hid_apple.conf >/dev/null
   sudo mkinitcpio -P
 fi
 

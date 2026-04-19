@@ -34,12 +34,6 @@ vim.pack.add({
   { src = "https://github.com/dariuscorvus/tree-sitter-surrealdb.nvim" },
 })
 
-require('nvim-treesitter.configs').setup {
-  highlight = { enable = true },
-  indent = { enable = true },
-}
-
-require('tree-sitter-surrealdb').setup()
 require("blink.cmp").setup()
 require("Navigator").setup()
 require("todo-comments").setup()
@@ -74,7 +68,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
-vim.lsp.enable({ "lua_ls", "svelte", "tinymist", "typescript-language-server", "rust_analyzer", "yaml-language-server", "html", "css-lsp", "json-lsp", "nixd", "zls" })
+vim.lsp.enable({ "lua_ls", "svelte", "tinymist", "ts_ls", "rust_analyzer", "yamlls", "html", "cssls", "jsonls", "nixd", "zls" })
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(ev)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
@@ -99,7 +93,7 @@ vim.keymap.set({ 'n', 't' }, '<C-h>', ':NavigatorLeft<CR>')
 vim.keymap.set({ 'n', 't' }, '<C-l>', ':NavigatorRight<CR>')
 vim.keymap.set({ 'n', 't' }, '<C-k>', ':NavigatorUp<CR>')
 vim.keymap.set({ 'n', 't' }, '<C-j>', ':NavigatorDown<CR>')
-vim.keymap.set({ "n", "t" }, "<C-t>", function() Snacks.terminal.toggle("fish") end) -- Open Snacks picker
+vim.keymap.set({ "n", "t" }, "<C-t>", function() Snacks.terminal.toggle("zsh") end) -- Open Snacks picker
 vim.keymap.set('n', '<leader>g', function() Snacks.lazygit() end)
 vim.keymap.set('n', '<leader>t', function() Snacks.picker.todo_comments() end)
 vim.keymap.set('n', '<leader>x', ":Trouble diagnostics toggle filter.buf=0<CR>")

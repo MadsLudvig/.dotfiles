@@ -3,7 +3,6 @@ hyprlock
 hypridle
 hyprpolkitagent
 xdg-desktop-portal-hyprland
-ghostty
 fuzzel
 neovim
 gimp
@@ -25,7 +24,6 @@ qt5-wayland
 qt6-wayland
 xdg-utils
 ttf-jetbrains-mono-nerd
-bibata-cursor-theme
 stow
 git
 base-devel
