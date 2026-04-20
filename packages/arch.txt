@@ -29,5 +29,4 @@ stow
 git
 base-devel
 man-db
-eww
 inetutils
