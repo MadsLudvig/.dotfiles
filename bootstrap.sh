@@ -25,7 +25,7 @@ ExecStart=-/sbin/agetty -o '-p -f -- \\\\u' --noclear --autologin $USER %I \$TER
 EOF
 sudo systemctl daemon-reload
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # 3. Kill the PC speaker beep, forever
 echo "blacklist pcspkr" | sudo tee /etc/modprobe.d/nobeep.conf >/dev/null
