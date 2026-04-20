@@ -4,7 +4,7 @@ export GTK_THEME=Adwaita:dark
 export _JAVA_OPTIONS="-Dsun.java2d.uiScale=1.9 -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
 export XDG_DATA_DIRS=/usr/local/share:/usr/share:${XDG_DATA_DIRS:-}
 export XDG_DATA_DIRS=/var/lib/flatpak/exports/share:$XDG_DATA_DIRS
-export XDG_DATA_DIRS=/home/mads/.local/share/flatpak/exports/share:$XDG_DATA_DIRS
+export XDG_DATA_DIRS=$HOME/.local/share/flatpak/exports/share:$XDG_DATA_DIRS
 
 # ZVM
 export ZVM_INSTALL="$HOME/.zvm/self"
