@@ -1,0 +1,35 @@
+(defpoll battery-percent :interval "10s"
+  "cat /sys/class/power_supply/macsmc-battery/capacity")
+
+(defpoll battery-status :interval "10s"
+  "cat /sys/class/power_supply/macsmc-battery/status")
+
+(defpoll net-status :interval "5s"
+  "scripts/net-status")
+
+(defpoll battery-color :interval "10s"
+  "scripts/battery-color")
+
+(defwidget sidebar []
+  (box :class "sidebar"
+       :orientation "v"
+       :space-evenly false
+       :valign "center"
+       :halign "center"
+    (box :class "net-dot"
+         :style "background-color: ${net-status};")
+    (box :class "bat-dot"
+         :style "background-color: ${battery-color};"
+         :tooltip "${battery-percent}% · ${battery-status}")))
+
+(defwindow sidebar
+  :monitor 0
+  :geometry (geometry :x "8px"
+                      :y "0px"
+                      :width "12px"
+                      :height "120px"
+                      :anchor "center left")
+  :stacking "overlay"
+  :exclusive false
+  :focusable false
+  (sidebar))

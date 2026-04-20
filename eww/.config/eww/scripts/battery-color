@@ -1,0 +1,13 @@
+#!/bin/bash
+pct=$(cat /sys/class/power_supply/macsmc-battery/capacity)
+status=$(cat /sys/class/power_supply/macsmc-battery/status)
+
+if [ "$status" = "Charging" ] || [ "$status" = "Full" ]; then
+  echo "#5af"
+elif [ "$pct" -ge 50 ]; then
+  echo "#8f8"
+elif [ "$pct" -ge 20 ]; then
+  echo "#fa4"
+else
+  echo "#f44"
+fi

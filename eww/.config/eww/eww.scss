@@ -1,0 +1,21 @@
+* {
+  all: unset;
+}
+
+.sidebar {
+  background: transparent;
+  padding: 4px;
+  gap: 8px;
+}
+
+.net-dot {
+  min-width: 10px;
+  min-height: 10px;
+  border-radius: 2px;
+}
+
+.bat-dot {
+  min-width: 10px;
+  min-height: 10px;
+  border-radius: 2px;
+}

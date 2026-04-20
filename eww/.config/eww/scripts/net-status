@@ -1,0 +1,8 @@
+#!/bin/bash
+# Connected = blue, disconnected = dark grey
+if ip -br link show wlan0 2>/dev/null | grep -q "UP" || \
+   ip -br link show enu1u1 2>/dev/null | grep -q "UP"; then
+  echo "#5af"
+else
+  echo "#444"
+fi
