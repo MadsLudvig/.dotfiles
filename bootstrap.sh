@@ -8,7 +8,7 @@ if [[ "$(uname -m)" == "aarch64" ]] && grep -qE '^\[asahi' /etc/pacman.conf; the
 fi
 
 # 0. Prereqs for bootstrap + apply.sh (git, stow, build toolchain for AUR)
-sudo pacman -Syu --needed --noconfirm git stow base-devel
+sudo pacman -Syu --needed --noconfirm git stow base-devel zsh
 
 # 1. MacBook: make top row send F1-F12 by default; Fn for brightness/media
 if [[ $IS_ASAHI -eq 1 ]]; then
